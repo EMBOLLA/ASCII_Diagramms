@@ -96,8 +96,8 @@ void saveHistogram(std::vector<inter>& hist , std::string& sortie) {
 
         for (int valeur = data.debut; valeur < data.fin; ++valeur) {
             std::cout << std::setw(2) << valeur << " | ";
-            int longueurBarre = static_cast<int>((static_cast<double>(fpc)/max)*largeurMax);
-            for (int i = 0; i < longueurBarre; ++i) {
+            int longueur = static_cast<int>((static_cast<double>(fpc)/max)*largeurMax);
+            for (int i = 0; i < longueur; ++i) {
                 fichier << '#';
             }
             fichier << " (" <<fpc<< ")" << std::endl;
@@ -113,7 +113,7 @@ void saveHistogram(std::vector<inter>& hist , std::string& sortie) {
 
 
 
-void drawCurves(const std::vector<Point>& points1 , const  std::vector<Point>& points2){
+void drawCurves(std::vector<Point>& points1 ,   std::vector<Point>& points2){
  const int longueur=80;
   const int hauteur=20;
 
@@ -196,7 +196,7 @@ void drawCurves(const std::vector<Point>& points1 , const  std::vector<Point>& p
 )"<<std::endl;
 }
 
-void saveCurves(const std::vector<Point>& points1 , const  std::vector<Point>& points2 , std::string& sortie){
+void saveCurves(std::vector<Point>& points1 ,  std::vector<Point>& points2 , std::string& sortie){
    
    std::ofstream fichier(sortie);
     if (!fichier) {
@@ -286,7 +286,7 @@ void saveCurves(const std::vector<Point>& points1 , const  std::vector<Point>& p
 }
 
 
-void drawBDiagram(const std::vector<Classe>& donnees) {
+void drawBDiagram(std::vector<Classe>& donnees) {
     const int largeurMax = 50; // Largeur maximale d'une barre
 
     // Trouver la valeur maximale pour la normalisation
@@ -316,7 +316,7 @@ void drawBDiagram(const std::vector<Classe>& donnees) {
 
 
 
-void saveBDiagram(const std::vector<Classe>& donnees , std::string& sortie) {
+void saveBDiagram(std::vector<Classe>& donnees , std::string& sortie) {
 
     std::ofstream fichier(sortie);
     if (!fichier) {

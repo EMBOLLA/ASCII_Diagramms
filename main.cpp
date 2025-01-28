@@ -82,6 +82,20 @@ int main(int argc,char **argv){
       }
      break;
     }
+    case 5:{
+     std::ifstream aide("README.md");
+     std::string ligne;
+
+     if (aide.is_open()) {
+        while (std::getline(aide, ligne)) {
+              std::cout << ligne << std::endl;
+        }
+        aide.close();
+     } else {
+        std::cerr << "Impossible d'afficher l'aide" << std::endl;
+     }
+
+    }
     default:{
       std::cout<<"Option invalide!!"<<std::endl;
      break;
